@@ -1,21 +1,23 @@
 const { connectDB } = require("../../../../lib/auth")
 const authService = require("../../../../services/auth/authService")
 const AppError = require("../../../../lib/errors/AppError")
+const { loginSchema } = require("../../../../validations/auth")
 
 export async function POST(request) {
   try {
     await connectDB()
 
     const body = await request.json()
-    const { email, password } = body
 
-    if (!email || !password) {
+    const validation = loginSchema.safeParse(body)
+    if (!validation.success) {
       return Response.json(
-        { success: false, error: { code: "VALIDATION_ERROR", message: "Email and password are required" } },
+        { success: false, error: { code: "VALIDATION_ERROR", message: validation.error.errors[0].message } },
         { status: 422 }
       )
     }
 
+    const { email, password } = validation.data
     const result = await authService.login(email, password)
 
     const cookieOptions = [
