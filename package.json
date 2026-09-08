@@ -1,0 +1,31 @@
+{
+  "name": "salon",
+  "version": "1.0.0",
+  "description": "Salon Management System",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.3.2",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "autoprefixer": "^10.5.5",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3"
+  }
+}

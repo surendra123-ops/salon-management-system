@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "frontend-ui": {
+      "source": "scientiacapital/skills",
+      "sourceType": "github",
+      "skillPath": "active/frontend-ui-skill/SKILL.md",
+      "computedHash": "59ea0e52b4a9088ec73b1e84b98f7b07508742bc71e56b7e4057921b8a04dd34"
+    },
+    "responsive-web-design": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/responsive-web-design/skills/responsive-web-design/SKILL.md",
+      "computedHash": "e7b09a592129115d711803a7213b16c0626903eeba18dca10127dd126e062081"
+    }
+  }
+}

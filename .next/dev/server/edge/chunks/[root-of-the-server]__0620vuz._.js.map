@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/suren/OneDrive/Desktop/salon/middleware.js"],"sourcesContent":["// Next.js middleware - minimal pass-through\n// This file is required by Next.js App Router but primarily\n// serves as a placeholder for future middleware needs.\n\n// Next.js expects a middleware function export\nexport const config = {\n  matcher: [],\n}\n\nexport function middleware(request) {\n  // Pass through to the request handler\n  // Request ID setup is done in route handlers via lib/middleware\n  return new Response(null, { status: 200 })\n}"],"names":["config","matcher","middleware","request","Response","status"],"mappings":"AAAA,4CAA4C;AAC5C,4DAA4D;AAC5D,uDAAuD;AAEvD,+CAA+C;;;;;;;AACxC,MAAMA,SAAS;IACpBC,SAAS,EAAE;AACb;AAEO,SAASC,WAAWC,OAAO;IAChC,sCAAsC;IACtC,gEAAgE;IAChE,OAAO,IAAIC,SAAS,MAAM;QAAEC,QAAQ;IAAI;AAC1C"}}]
+}

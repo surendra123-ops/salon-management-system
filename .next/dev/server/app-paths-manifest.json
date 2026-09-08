@@ -1,0 +1,14 @@
+{
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
+  "/(dashboard)/services/page": "app/(dashboard)/services/page.js",
+  "/(dashboard)/transactions/new/page": "app/(dashboard)/transactions/new/page.js",
+  "/(dashboard)/transactions/page": "app/(dashboard)/transactions/page.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/auth/logout/route": "app/api/auth/logout/route.js",
+  "/api/auth/me/route": "app/api/auth/me/route.js",
+  "/api/reports/dashboard/route": "app/api/reports/dashboard/route.js",
+  "/api/services/[id]/route": "app/api/services/[id]/route.js",
+  "/api/services/route": "app/api/services/route.js",
+  "/api/transactions/route": "app/api/transactions/route.js"
+}
