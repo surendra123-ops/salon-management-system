@@ -63,16 +63,16 @@ const Modal = ({ isOpen, onClose, title, children, size = "md" }) => {
     >
       <div
         ref={panelRef}
-        className={`relative w-full ${sizeClasses[size]} bg-white rounded-xl shadow-2xl max-h-[90vh] flex flex-col`}
+        className={`relative w-full ${sizeClasses[size]} bg-card rounded-xl shadow-2xl max-h-[90vh] flex flex-col`}
       >
         {title && (
           <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-            <h2 id="modal-title" className="text-lg font-semibold text-gray-900">
+            <h2 id="modal-title" className="text-lg font-semibold text-primary">
               {title}
             </h2>
             <button
               onClick={onClose}
-              className="p-1 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+              className="p-1 rounded-lg text-secondary hover:text-primary hover:bg-background transition-colors"
               aria-label="Close"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

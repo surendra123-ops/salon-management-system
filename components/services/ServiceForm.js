@@ -79,7 +79,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Service Image</label>
+        <label className="block text-sm font-medium text-secondary mb-2">Service Image</label>
         {imagePreview ? (
           <div className="relative inline-block">
             <img
@@ -126,7 +126,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
       </div>
 
       <div>
-        <label htmlFor="service-name" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="service-name" className="block text-sm font-medium text-secondary mb-2">
           Service Name
         </label>
         <input
@@ -143,7 +143,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
       </div>
 
       <div>
-        <label htmlFor="service-price" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="service-price" className="block text-sm font-medium text-secondary mb-2">
           Price
         </label>
         <div className="relative">
@@ -156,7 +156,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
             min="0"
             step="1"
             placeholder="0"
-            className={`w-full pl-7 pr-3.5 py-2.5 text-sm border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors ${
+            className={`w-full pl-7 pr-3.5 py-2.5 text-sm border rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none transition-colors ${
               errors.price ? "border-red-300 bg-red-50" : "border-gray-300"
             }`}
           />
@@ -169,14 +169,14 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
           type="button"
           onClick={onCancel}
           disabled={loading}
-          className="flex-1 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50"
+          className="flex-1 px-4 py-2.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background transition-colors disabled:opacity-50"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={loading}
-          className="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+          className="flex-1 px-4 py-2.5 text-sm font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
         >
           {loading && (
             <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">

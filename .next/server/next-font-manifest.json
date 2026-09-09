@@ -1,6 +1,51 @@
 {
-  "app": {},
-  "appUsingSizeAdjust": false,
+  "app": {
+    "[project]/app/(auth)/login/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/(auth)/register/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/(dashboard)/dashboard/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/(dashboard)/services/[id]/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/(dashboard)/services/add/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/(dashboard)/services/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/(dashboard)/transactions/[id]/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/(dashboard)/transactions/new/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/(dashboard)/transactions/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/_not-found/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ],
+    "[project]/app/page": [
+      "static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "static/media/b89b762ca15e5cab-s.p.0s59japw84yl-.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
   "pages": {},
   "pagesUsingSizeAdjust": false
 }

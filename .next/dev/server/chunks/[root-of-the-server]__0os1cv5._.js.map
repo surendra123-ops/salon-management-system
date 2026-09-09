@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 52, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/suren/OneDrive/Desktop/salon/app/api/auth/logout/route.js"],"sourcesContent":["export async function POST() {\n  return Response.json(\n    { success: true, data: {} },\n    {\n      status: 200,\n      headers: {\n        \"Set-Cookie\": \"token=; HttpOnly; Path=/; SameSite=Strict; Max-Age=0\",\n      },\n    }\n  )\n}\n"],"names":["POST","Response","json","success","data","status","headers"],"mappings":";;;;AAAO,eAAeA;IACpB,OAAOC,SAASC,IAAI,CAClB;QAAEC,SAAS;QAAMC,MAAM,CAAC;IAAE,GAC1B;QACEC,QAAQ;QACRC,SAAS;YACP,cAAc;QAChB;IACF;AAEJ"}}]
+    {"offset": {"line": 52, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Harsha%20vardhan/Desktop/salon/app/api/auth/logout/route.js"],"sourcesContent":["export async function POST() {\r\n  return Response.json(\r\n    { success: true, data: {} },\r\n    {\r\n      status: 200,\r\n      headers: {\r\n        \"Set-Cookie\": \"token=; HttpOnly; Path=/; SameSite=Strict; Max-Age=0\",\r\n      },\r\n    }\r\n  )\r\n}\r\n"],"names":["POST","Response","json","success","data","status","headers"],"mappings":";;;;AAAO,eAAeA;IACpB,OAAOC,SAASC,IAAI,CAClB;QAAEC,SAAS;QAAMC,MAAM,CAAC;IAAE,GAC1B;QACEC,QAAQ;QACRC,SAAS;YACP,cAAc;QAChB;IACF;AAEJ"}}]
 }

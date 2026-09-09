@@ -17,8 +17,6 @@ const TransactionForm = ({ initialServices })=>{
     const [services] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(initialServices);
     const [selectedServices, setSelectedServices] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [serviceSearch, setServiceSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [discountType, setDiscountType] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("fixed");
-    const [discountValue, setDiscountValue] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [paymentMethod, setPaymentMethod] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("cash");
     const [notes, setNotes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -54,13 +52,7 @@ const TransactionForm = ({ initialServices })=>{
         setSelectedServices((prev)=>prev.filter((s)=>s.serviceId !== serviceId));
     };
     const subtotal = selectedServices.reduce((sum, s)=>sum + s.price * s.quantity, 0);
-    const discountAmount = (()=>{
-        const val = Number(discountValue) || 0;
-        if (discountType === "fixed") return Math.min(val, subtotal);
-        if (discountType === "percentage") return Math.min(Math.floor(subtotal * val / 100), subtotal);
-        return 0;
-    })();
-    const finalAmount = Math.max(0, subtotal - discountAmount);
+    const finalAmount = subtotal;
     const handleSubmit = async ()=>{
         if (selectedServices.length === 0) {
             setError("Please add at least one service");
@@ -79,10 +71,6 @@ const TransactionForm = ({ initialServices })=>{
                             serviceId: s.serviceId,
                             quantity: s.quantity
                         })),
-                    discount: discountValue && Number(discountValue) > 0 ? {
-                        type: discountType,
-                        value: Number(discountValue)
-                    } : undefined,
                     paymentMethod,
                     notes: notes.trim() || undefined
                 })
@@ -101,16 +89,16 @@ const TransactionForm = ({ initialServices })=>{
     };
     if (success) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "min-h-screen bg-gray-50 p-4",
+            className: "min-h-screen bg-background p-4 pt-12",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "max-w-lg mx-auto",
+                className: "max-w-md mx-auto",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "bg-white rounded-xl border border-gray-200 p-8 text-center",
+                    className: "bg-card rounded-2xl border border-gray-200 p-10 text-center shadow-sm",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4",
+                            className: "w-20 h-20 bg-accent-total-bg rounded-full flex items-center justify-center mx-auto mb-6",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                className: "w-8 h-8 text-emerald-600",
+                                className: "w-10 h-10 text-emerald-600",
                                 fill: "none",
                                 stroke: "currentColor",
                                 viewBox: "0 0 24 24",
@@ -121,107 +109,108 @@ const TransactionForm = ({ initialServices })=>{
                                     d: "M5 13l4 4L19 7"
                                 }, void 0, false, {
                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                    lineNumber: 96,
+                                    lineNumber: 85,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/components/transactions/TransactionForm.js",
-                                lineNumber: 95,
+                                lineNumber: 84,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 94,
+                            lineNumber: 83,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-xl font-bold text-gray-900 mb-2",
+                            className: "text-2xl font-bold text-primary mb-3",
                             children: "Transaction Completed"
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 99,
+                            lineNumber: 88,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-sm text-gray-500 mb-1",
+                            className: "text-base text-secondary mb-2",
                             children: "Transaction number"
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 100,
+                            lineNumber: 89,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "font-mono text-lg font-semibold text-gray-900 mb-4",
+                            className: "font-mono text-xl font-semibold text-gray-900 mb-5",
                             children: success.transactionNumber
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 101,
+                            lineNumber: 90,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-3xl font-bold text-primary-600 mb-6",
+                            className: "text-4xl font-bold text-button-primary mb-8",
                             children: [
                                 "₹",
                                 success.finalAmount?.toLocaleString("en-IN")
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 102,
+                            lineNumber: 91,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex gap-3",
+                            className: "flex gap-4",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: ()=>window.location.href = `/transactions/${success.id}`,
-                                    className: "flex-1 px-4 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                    href: `/transactions/${success.id}`,
+                                    className: "flex-1 px-5 py-3 text-base font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors text-center",
                                     children: "View Receipt"
                                 }, void 0, false, {
                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                    lineNumber: 106,
+                                    lineNumber: 95,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: ()=>window.location.reload(),
-                                    className: "flex-1 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors",
-                                    children: "New Transaction"
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                    href: "/dashboard",
+                                    className: "flex-1 px-5 py-3 text-base font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background transition-colors text-center",
+                                    children: "Go to Dashboard"
                                 }, void 0, false, {
                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                    lineNumber: 112,
+                                    lineNumber: 101,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 105,
+                            lineNumber: 94,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/transactions/TransactionForm.js",
-                    lineNumber: 93,
+                    lineNumber: 82,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/transactions/TransactionForm.js",
-                lineNumber: 92,
+                lineNumber: 81,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/components/transactions/TransactionForm.js",
-            lineNumber: 91,
+            lineNumber: 80,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
     const filteredServices = serviceSearch.trim() ? services.filter((s)=>s.name.toLowerCase().includes(serviceSearch.toLowerCase()) || (s.category || "").toLowerCase().includes(serviceSearch.toLowerCase())) : services;
     const groupedServices = filteredServices.reduce((groups, service)=>{
-        const cat = service.category || "Other";
+        let cat = service.category || "Other";
+        if (cat === "Other Services") cat = "Women's Services";
         if (!groups[cat]) groups[cat] = [];
         groups[cat].push(service);
         return groups;
     }, {});
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gray-50",
+        className: "min-h-screen bg-background",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-6xl mx-auto px-4 py-6 sm:px-6 lg:px-8",
             children: [
@@ -233,30 +222,30 @@ const TransactionForm = ({ initialServices })=>{
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: "text-2xl font-bold text-gray-900",
+                                        className: "text-2xl font-bold text-primary",
                                         children: "New Transaction"
                                     }, void 0, false, {
                                         fileName: "[project]/components/transactions/TransactionForm.js",
-                                        lineNumber: 144,
+                                        lineNumber: 134,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-sm text-gray-500 mt-1",
+                                        className: "text-sm text-secondary mt-1",
                                         children: "Select services and complete the sale."
                                     }, void 0, false, {
                                         fileName: "[project]/components/transactions/TransactionForm.js",
-                                        lineNumber: 145,
+                                        lineNumber: 135,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/transactions/TransactionForm.js",
-                                lineNumber: 143,
+                                lineNumber: 133,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>window.history.back(),
-                                className: "inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shrink-0",
+                                className: "inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background transition-colors shrink-0",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                         className: "w-4 h-4",
@@ -270,30 +259,30 @@ const TransactionForm = ({ initialServices })=>{
                                             d: "M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 152,
+                                            lineNumber: 142,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/components/transactions/TransactionForm.js",
-                                        lineNumber: 151,
+                                        lineNumber: 141,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     "Back"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/transactions/TransactionForm.js",
-                                lineNumber: 147,
+                                lineNumber: 137,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/transactions/TransactionForm.js",
-                        lineNumber: 142,
+                        lineNumber: 132,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/components/transactions/TransactionForm.js",
-                    lineNumber: 141,
+                    lineNumber: 131,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -311,12 +300,12 @@ const TransactionForm = ({ initialServices })=>{
                                 d: "M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
                             }, void 0, false, {
                                 fileName: "[project]/components/transactions/TransactionForm.js",
-                                lineNumber: 162,
+                                lineNumber: 152,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 161,
+                            lineNumber: 151,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -324,13 +313,13 @@ const TransactionForm = ({ initialServices })=>{
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 164,
+                            lineNumber: 154,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/transactions/TransactionForm.js",
-                    lineNumber: 160,
+                    lineNumber: 150,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -340,21 +329,21 @@ const TransactionForm = ({ initialServices })=>{
                             className: "lg:col-span-2 space-y-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white rounded-xl border border-gray-200 p-5",
+                                    className: "bg-card rounded-xl border border-gray-200 p-5",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-base font-semibold text-gray-900 mb-4",
+                                            className: "text-base font-semibold text-primary mb-4",
                                             children: "Select Services"
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 171,
+                                            lineNumber: 161,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "relative mb-4",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                    className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none",
+                                                    className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-secondary pointer-events-none",
                                                     fill: "none",
                                                     viewBox: "0 0 24 24",
                                                     stroke: "currentColor",
@@ -365,12 +354,12 @@ const TransactionForm = ({ initialServices })=>{
                                                         d: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/transactions/TransactionForm.js",
-                                                        lineNumber: 174,
+                                                        lineNumber: 164,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 173,
+                                                    lineNumber: 163,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -378,53 +367,53 @@ const TransactionForm = ({ initialServices })=>{
                                                     value: serviceSearch,
                                                     onChange: (e)=>setServiceSearch(e.target.value),
                                                     placeholder: "Search by name or category...",
-                                                    className: "w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+                                                    className: "w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none transition-colors"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 176,
+                                                    lineNumber: 166,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 172,
+                                            lineNumber: 162,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         Object.keys(groupedServices).length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "text-center py-8",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-sm text-gray-500",
+                                                    className: "text-sm text-secondary",
                                                     children: "No services found."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 187,
+                                                    lineNumber: 177,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                     href: "/services",
-                                                    className: "text-sm text-primary-600 hover:underline mt-1 inline-block",
+                                                    className: "text-sm text-button-primary hover:underline mt-1 inline-block",
                                                     children: "Add a service"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 188,
+                                                    lineNumber: 178,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 186,
+                                            lineNumber: 176,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "space-y-4 max-h-[500px] overflow-y-auto",
                                             children: Object.entries(groupedServices).map(([category, catServices])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                            className: "text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide",
+                                                            className: "text-xs font-medium text-secondary mb-2 uppercase tracking-wide",
                                                             children: category
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 194,
+                                                            lineNumber: 184,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -434,7 +423,7 @@ const TransactionForm = ({ initialServices })=>{
                                                                 const selectedSvc = selectedServices.find((s)=>s.serviceId === service.id);
                                                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                     onClick: ()=>handleAddService(service),
-                                                                    className: `text-left p-3 rounded-lg border transition-all duration-150 flex items-center gap-3 ${isSelected ? "border-primary-300 bg-primary-50 ring-1 ring-primary-200" : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"}`,
+                                                                    className: `text-left p-3 rounded-lg border transition-all duration-150 flex items-center gap-3 ${isSelected ? "border-button-primary bg-accent-total-bg ring-1 ring-button-primary" : "border-gray-200 hover:border-gray-300 hover:bg-background"}`,
                                                                     children: [
                                                                         service.image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                                             src: service.image,
@@ -442,12 +431,12 @@ const TransactionForm = ({ initialServices })=>{
                                                                             className: "w-10 h-10 rounded-lg object-cover shrink-0"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                            lineNumber: 210,
+                                                                            lineNumber: 200,
                                                                             columnNumber: 33
                                                                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center shrink-0",
+                                                                            className: "w-10 h-10 rounded-lg bg-background flex items-center justify-center shrink-0",
                                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                                                className: "w-5 h-5 text-gray-400",
+                                                                                className: "w-5 h-5 text-secondary",
                                                                                 fill: "none",
                                                                                 viewBox: "0 0 24 24",
                                                                                 stroke: "currentColor",
@@ -458,100 +447,100 @@ const TransactionForm = ({ initialServices })=>{
                                                                                     d: "M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                                    lineNumber: 214,
+                                                                                    lineNumber: 204,
                                                                                     columnNumber: 37
                                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                                lineNumber: 213,
+                                                                                lineNumber: 203,
                                                                                 columnNumber: 35
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                            lineNumber: 212,
+                                                                            lineNumber: 202,
                                                                             columnNumber: 33
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                             className: "flex-1 min-w-0",
                                                                             children: [
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                    className: "text-sm font-medium text-gray-900 truncate",
+                                                                                    className: "text-sm font-medium text-primary truncate",
                                                                                     children: service.name
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                                    lineNumber: 219,
+                                                                                    lineNumber: 209,
                                                                                     columnNumber: 33
                                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                    className: "text-sm text-primary-600 font-semibold",
+                                                                                    className: "text-sm text-button-primary font-semibold",
                                                                                     children: [
                                                                                         "₹",
                                                                                         Number(service.price).toLocaleString("en-IN")
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                                    lineNumber: 220,
+                                                                                    lineNumber: 210,
                                                                                     columnNumber: 33
                                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                            lineNumber: 218,
+                                                                            lineNumber: 208,
                                                                             columnNumber: 31
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         isSelected && selectedSvc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: "shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-xs font-bold",
+                                                                            className: "shrink-0 w-6 h-6 bg-button-primary text-button-text rounded-full flex items-center justify-center text-xs font-bold",
                                                                             children: selectedSvc.quantity
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                            lineNumber: 223,
+                                                                            lineNumber: 213,
                                                                             columnNumber: 33
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, service.id, true, {
                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                    lineNumber: 200,
+                                                                    lineNumber: 190,
                                                                     columnNumber: 29
                                                                 }, ("TURBOPACK compile-time value", void 0));
                                                             })
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 195,
+                                                            lineNumber: 185,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, category, true, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 193,
+                                                    lineNumber: 183,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)))
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 191,
+                                            lineNumber: 181,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                    lineNumber: 170,
+                                    lineNumber: 160,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 selectedServices.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white rounded-xl border border-gray-200 p-5",
+                                    className: "bg-card rounded-xl border border-gray-200 p-5",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex items-center justify-between mb-4",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                    className: "text-base font-semibold text-gray-900",
+                                                    className: "text-base font-semibold text-primary",
                                                     children: "Selected Services"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 240,
+                                                    lineNumber: 230,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-sm text-gray-500",
+                                                    className: "text-sm text-secondary",
                                                     children: [
                                                         selectedServices.length,
                                                         " item",
@@ -559,19 +548,19 @@ const TransactionForm = ({ initialServices })=>{
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 241,
+                                                    lineNumber: 231,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 239,
+                                            lineNumber: 229,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "space-y-2",
                                             children: selectedServices.map((svc)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex items-center gap-3 p-3 bg-gray-50 rounded-lg",
+                                                    className: "flex items-center gap-3 p-3 bg-background rounded-lg",
                                                     children: [
                                                         svc.image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                             src: svc.image,
@@ -579,22 +568,22 @@ const TransactionForm = ({ initialServices })=>{
                                                             className: "w-9 h-9 rounded-lg object-cover shrink-0"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 247,
+                                                            lineNumber: 237,
                                                             columnNumber: 25
                                                         }, ("TURBOPACK compile-time value", void 0)) : null,
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex-1 min-w-0",
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                    className: "text-sm font-medium text-gray-900 truncate",
+                                                                    className: "text-sm font-medium text-primary truncate",
                                                                     children: svc.serviceName
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                    lineNumber: 250,
+                                                                    lineNumber: 240,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                    className: "text-xs text-gray-500",
+                                                                    className: "text-xs text-secondary",
                                                                     children: [
                                                                         "₹",
                                                                         svc.price.toLocaleString("en-IN"),
@@ -602,28 +591,28 @@ const TransactionForm = ({ initialServices })=>{
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                    lineNumber: 251,
+                                                                    lineNumber: 241,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 249,
+                                                            lineNumber: 239,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex items-center gap-2 shrink-0",
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex items-center bg-white border border-gray-200 rounded-lg",
+                                                                    className: "flex items-center bg-card border border-gray-200 rounded-lg",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                             onClick: ()=>handleUpdateQuantity(svc.serviceId, -1),
-                                                                            className: "w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700 rounded-l-lg hover:bg-gray-50 transition-colors",
+                                                                            className: "w-8 h-8 flex items-center justify-center text-secondary hover:text-primary rounded-l-lg hover:bg-background transition-colors",
                                                                             children: "−"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                            lineNumber: 255,
+                                                                            lineNumber: 245,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -631,38 +620,38 @@ const TransactionForm = ({ initialServices })=>{
                                                                             children: svc.quantity
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                            lineNumber: 261,
+                                                                            lineNumber: 251,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                             onClick: ()=>handleUpdateQuantity(svc.serviceId, 1),
-                                                                            className: "w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700 rounded-r-lg hover:bg-gray-50 transition-colors",
+                                                                            className: "w-8 h-8 flex items-center justify-center text-secondary hover:text-primary rounded-r-lg hover:bg-background transition-colors",
                                                                             children: "+"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                            lineNumber: 262,
+                                                                            lineNumber: 252,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                    lineNumber: 254,
+                                                                    lineNumber: 244,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                    className: "text-sm font-semibold text-gray-900 w-16 text-right",
+                                                                    className: "text-sm font-semibold text-primary w-16 text-right",
                                                                     children: [
                                                                         "₹",
                                                                         (svc.price * svc.quantity).toLocaleString("en-IN")
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                    lineNumber: 269,
+                                                                    lineNumber: 259,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                     onClick: ()=>handleRemoveService(svc.serviceId),
-                                                                    className: "p-1 text-gray-400 hover:text-red-500 transition-colors",
+                                                                    className: "p-1 text-secondary hover:text-red-500 transition-colors",
                                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                                                         className: "w-4 h-4",
                                                                         fill: "none",
@@ -675,134 +664,60 @@ const TransactionForm = ({ initialServices })=>{
                                                                             d: "M6 18L18 6M6 6l12 12"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                            lineNumber: 275,
+                                                                            lineNumber: 265,
                                                                             columnNumber: 29
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                        lineNumber: 274,
+                                                                        lineNumber: 264,
                                                                         columnNumber: 27
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                    lineNumber: 270,
+                                                                    lineNumber: 260,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 253,
+                                                            lineNumber: 243,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, svc.serviceId, true, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 245,
+                                                    lineNumber: 235,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)))
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 243,
+                                            lineNumber: 233,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                    lineNumber: 238,
+                                    lineNumber: 228,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 169,
+                            lineNumber: 159,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "space-y-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white rounded-xl border border-gray-200 p-5",
+                                    className: "bg-card rounded-xl border border-gray-200 p-5",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-base font-semibold text-gray-900 mb-4",
-                                            children: "Discount"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 288,
-                                            columnNumber: 15
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex gap-2 mb-3",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    onClick: ()=>setDiscountType("fixed"),
-                                                    className: `flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${discountType === "fixed" ? "bg-primary-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`,
-                                                    children: "Fixed (₹)"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 290,
-                                                    columnNumber: 17
-                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    onClick: ()=>setDiscountType("percentage"),
-                                                    className: `flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${discountType === "percentage" ? "bg-primary-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`,
-                                                    children: "Percentage (%)"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 298,
-                                                    columnNumber: 17
-                                                }, ("TURBOPACK compile-time value", void 0))
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 289,
-                                            columnNumber: 15
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative",
-                                            children: [
-                                                discountType === "fixed" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-500 pointer-events-none",
-                                                    children: "₹"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 309,
-                                                    columnNumber: 19
-                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                    type: "number",
-                                                    value: discountValue,
-                                                    onChange: (e)=>setDiscountValue(e.target.value),
-                                                    min: "0",
-                                                    max: discountType === "percentage" ? 100 : subtotal,
-                                                    placeholder: "0",
-                                                    className: `w-full py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors ${discountType === "fixed" ? "pl-7 pr-3" : "px-3"}`
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 311,
-                                                    columnNumber: 17
-                                                }, ("TURBOPACK compile-time value", void 0))
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 307,
-                                            columnNumber: 15
-                                        }, ("TURBOPACK compile-time value", void 0))
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/transactions/TransactionForm.js",
-                                    lineNumber: 287,
-                                    columnNumber: 13
-                                }, ("TURBOPACK compile-time value", void 0)),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white rounded-xl border border-gray-200 p-5",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-base font-semibold text-gray-900 mb-4",
+                                            className: "text-base font-semibold text-primary mb-4",
                                             children: "Payment"
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 326,
+                                            lineNumber: 278,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -811,11 +726,11 @@ const TransactionForm = ({ initialServices })=>{
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                            className: "block text-sm font-medium text-gray-700 mb-2",
+                                                            className: "block text-sm font-medium text-secondary mb-2",
                                                             children: "Method"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 329,
+                                                            lineNumber: 281,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -835,33 +750,33 @@ const TransactionForm = ({ initialServices })=>{
                                                                 }
                                                             ].map((m)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                     onClick: ()=>setPaymentMethod(m.value),
-                                                                    className: `py-2.5 rounded-lg text-sm font-medium transition-colors ${paymentMethod === m.value ? "bg-primary-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`,
+                                                                    className: `py-2.5 rounded-lg text-sm font-medium transition-colors ${paymentMethod === m.value ? "bg-button-primary text-button-text" : "bg-background text-secondary hover:bg-gray-200"}`,
                                                                     children: m.label
                                                                 }, m.value, false, {
                                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                    lineNumber: 332,
+                                                                    lineNumber: 284,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)))
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 330,
+                                                            lineNumber: 282,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 328,
+                                                    lineNumber: 280,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                             htmlFor: "notes",
-                                                            className: "block text-sm font-medium text-gray-700 mb-2",
+                                                            className: "block text-sm font-medium text-secondary mb-2",
                                                             children: "Notes (optional)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 347,
+                                                            lineNumber: 299,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -869,40 +784,40 @@ const TransactionForm = ({ initialServices })=>{
                                                             value: notes,
                                                             onChange: (e)=>setNotes(e.target.value),
                                                             rows: 2,
-                                                            className: "w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors resize-none",
+                                                            className: "w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none transition-colors resize-none",
                                                             placeholder: "Any notes..."
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 348,
+                                                            lineNumber: 300,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 346,
+                                                    lineNumber: 298,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 327,
+                                            lineNumber: 279,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                    lineNumber: 325,
+                                    lineNumber: 277,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white rounded-xl border border-gray-200 p-5",
+                                    className: "bg-card rounded-xl border border-gray-200 p-5",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-base font-semibold text-gray-900 mb-4",
+                                            className: "text-base font-semibold text-primary mb-4",
                                             children: "Bill Summary"
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 361,
+                                            lineNumber: 313,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -916,7 +831,7 @@ const TransactionForm = ({ initialServices })=>{
                                                             children: "Subtotal"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 364,
+                                                            lineNumber: 316,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -927,44 +842,14 @@ const TransactionForm = ({ initialServices })=>{
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 365,
+                                                            lineNumber: 317,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 363,
+                                                    lineNumber: 315,
                                                     columnNumber: 17
-                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                discountAmount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex justify-between text-emerald-600",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            children: [
-                                                                "Discount ",
-                                                                discountType === "percentage" && `(${discountValue}%)`
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 369,
-                                                            columnNumber: 21
-                                                        }, ("TURBOPACK compile-time value", void 0)),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "font-medium",
-                                                            children: [
-                                                                "-₹",
-                                                                discountAmount.toLocaleString("en-IN")
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 370,
-                                                            columnNumber: 21
-                                                        }, ("TURBOPACK compile-time value", void 0))
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 368,
-                                                    columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "border-t border-gray-200 pt-3 mt-3",
@@ -976,41 +861,41 @@ const TransactionForm = ({ initialServices })=>{
                                                                 children: "Total"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                lineNumber: 375,
+                                                                lineNumber: 321,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "text-xl font-bold text-primary-600",
+                                                                className: "text-xl font-bold text-button-primary",
                                                                 children: [
                                                                     "₹",
                                                                     finalAmount.toLocaleString("en-IN")
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/transactions/TransactionForm.js",
-                                                                lineNumber: 376,
+                                                                lineNumber: 322,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/transactions/TransactionForm.js",
-                                                        lineNumber: 374,
+                                                        lineNumber: 320,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 373,
+                                                    lineNumber: 319,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 362,
+                                            lineNumber: 314,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: handleSubmit,
                                             disabled: loading || selectedServices.length === 0,
-                                            className: "w-full mt-5 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2",
+                                            className: "w-full mt-5 py-3 bg-button-primary text-button-text rounded-lg hover:opacity-90 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2",
                                             children: [
                                                 loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                                     className: "w-4 h-4 animate-spin",
@@ -1026,7 +911,7 @@ const TransactionForm = ({ initialServices })=>{
                                                             strokeWidth: "4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 387,
+                                                            lineNumber: 333,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -1035,53 +920,53 @@ const TransactionForm = ({ initialServices })=>{
                                                             d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                                            lineNumber: 388,
+                                                            lineNumber: 334,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                                    lineNumber: 386,
+                                                    lineNumber: 332,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 loading ? "Processing..." : "Complete Transaction"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/transactions/TransactionForm.js",
-                                            lineNumber: 380,
+                                            lineNumber: 326,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/transactions/TransactionForm.js",
-                                    lineNumber: 360,
+                                    lineNumber: 312,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/transactions/TransactionForm.js",
-                            lineNumber: 286,
+                            lineNumber: 276,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/transactions/TransactionForm.js",
-                    lineNumber: 168,
+                    lineNumber: 158,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/transactions/TransactionForm.js",
-            lineNumber: 140,
+            lineNumber: 130,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/transactions/TransactionForm.js",
-        lineNumber: 139,
+        lineNumber: 129,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(TransactionForm, "jbzg27m9SCGPtgTTk9AX01b6a7k=");
+_s(TransactionForm, "u5oiRsbEua7SvfTUpXNN3GibWRM=");
 _c = TransactionForm;
 const __TURBOPACK__default__export__ = TransactionForm;
 var _c;

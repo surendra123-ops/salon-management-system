@@ -73,17 +73,17 @@ const AddServicePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 max-w-2xl mx-auto">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Add Service</h2>
+    <div className="min-h-screen bg-background p-4 max-w-2xl mx-auto">
+      <div className="bg-card rounded-lg shadow-xl p-8 max-w-md w-full">
+        <h2 className="text-2xl font-bold text-primary mb-6 text-center">Add Service</h2>
 
-        {success && <div className="bg-green-100 text-green-800 p-4 rounded mb-6">Service added successfully!</div>}
+        {success && <div className="bg-accent-total-bg text-green-800 p-4 rounded mb-6">Service added successfully!</div>}
         {error && <div className="bg-red-100 text-red-800 p-4 rounded mb-6">{error}</div>}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Service Image</label>
-            <input type="file" accept="image/*" onChange={handleImageChange} className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent" />
+            <label className="block text-sm font-medium text-secondary mb-2">Service Image</label>
+            <input type="file" accept="image/*" onChange={handleImageChange} className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent" />
             {imagePreview && (
               <div className="mt-2">
                 <img src={imagePreview} alt="Preview" className="w-32 h-32 object-cover rounded" />
@@ -92,22 +92,22 @@ const AddServicePage = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Service Name *</label>
-            <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter service name" className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required />
+            <label className="block text-sm font-medium text-secondary mb-2">Service Name *</label>
+            <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter service name" className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent" required />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Category *</label>
-            <input value={category} onChange={(e) => setCategory(e.target.value)} type="text" placeholder="Enter service category" className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required />
+            <label className="block text-sm font-medium text-secondary mb-2">Category *</label>
+            <input value={category} onChange={(e) => setCategory(e.target.value)} type="text" placeholder="Enter service category" className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent" required />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Price (in INR) *</label>
-            <input value={price} onChange={(e) => setPrice(e.target.value)} type="number" min="0" step="1" placeholder="Enter price" className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required />
-            <p className="text-sm text-gray-500 mt-1">Price must be a non-negative integer</p>
+            <label className="block text-sm font-medium text-secondary mb-2">Price (in INR) *</label>
+            <input value={price} onChange={(e) => setPrice(e.target.value)} type="number" min="0" step="1" placeholder="Enter price" className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent" required />
+            <p className="text-sm text-secondary mt-1">Price must be a non-negative integer</p>
           </div>
 
-          <button type="submit" disabled={loading} className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50">
+          <button type="submit" disabled={loading} className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-button-text bg-button-primary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-button-primary disabled:opacity-50">
             {loading ? "Saving..." : "Save Service"}
           </button>
         </form>

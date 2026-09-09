@@ -40,30 +40,30 @@ const TransactionCard = ({ transaction, onView }) => {
   const serviceNames = Array.isArray(transaction.services) ? transaction.services : []
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+    <div className="bg-card rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <p className="font-mono text-sm font-semibold text-gray-900">{transaction.transactionNumber}</p>
-            <p className="text-xs text-gray-400 mt-0.5">{formatDate(transaction.createdAt)} at {formatTime(transaction.createdAt)}</p>
+            <p className="font-mono text-sm font-semibold text-primary">{transaction.transactionNumber}</p>
+            <p className="text-xs text-secondary mt-0.5">{formatDate(transaction.createdAt)} at {formatTime(transaction.createdAt)}</p>
           </div>
-          <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${statusStyles[transaction.paymentStatus] || "bg-gray-50 text-gray-700 border-gray-200"}`}>
+          <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${statusStyles[transaction.paymentStatus] || "bg-background text-secondary border-gray-200"}`}>
             {transaction.paymentStatus}
           </span>
         </div>
 
         <div className="mt-3">
-          <p className="text-sm text-gray-600 truncate">
+          <p className="text-sm text-secondary truncate">
             {serviceNames.length > 0 ? serviceNames.join(", ") : "Services"}
           </p>
         </div>
 
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
-          <div className="flex items-center gap-1.5 text-gray-500">
+          <div className="flex items-center gap-1.5 text-secondary">
             {paymentMethodIcons[transaction.paymentMethod] || paymentMethodIcons.cash}
             <span className="text-xs font-medium capitalize">{transaction.paymentMethod}</span>
           </div>
-          <p className="text-lg font-bold text-gray-900">₹{(transaction.finalAmount || 0).toLocaleString("en-IN")}</p>
+          <p className="text-lg font-bold text-primary">₹{(transaction.finalAmount || 0).toLocaleString("en-IN")}</p>
         </div>
 
         {transaction.amountDue > 0 && (
@@ -76,10 +76,10 @@ const TransactionCard = ({ transaction, onView }) => {
         )}
       </div>
 
-      <div className="px-4 py-2.5 bg-gray-50 border-t border-gray-100">
+      <div className="px-4 py-2.5 bg-background border-t border-gray-100">
         <button
           onClick={() => onView(transaction)}
-          className="w-full text-center text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors"
+          className="w-full text-center text-sm font-medium text-button-primary hover:opacity-80 transition-colors"
         >
           View Details
         </button>

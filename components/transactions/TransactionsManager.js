@@ -103,12 +103,12 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
       <div className="mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Transactions</h1>
-            <p className="text-sm text-gray-500 mt-1">View all salon transactions.</p>
+            <h1 className="text-2xl font-bold text-primary">Transactions</h1>
+            <p className="text-sm text-secondary mt-1">View all salon transactions.</p>
           </div>
           <button
             onClick={() => (window.location.href = "/transactions/new")}
-            className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors shadow-sm shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors shadow-sm shrink-0"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -118,10 +118,10 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200 p-4 mb-6">
+      <div className="bg-card rounded-xl border border-gray-200 p-4 mb-6">
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-secondary pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
             <input
@@ -129,13 +129,13 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by transaction number..."
-              className="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+              className="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none transition-colors"
             />
           </div>
           <select
             value={filterPaymentMethod}
             onChange={(e) => setFilterPaymentMethod(e.target.value)}
-            className="px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white transition-colors"
+            className="px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none bg-card transition-colors"
           >
             <option value="">All Methods</option>
             <option value="cash">Cash</option>
@@ -145,8 +145,8 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
         </div>
         {hasActiveFilters && (
           <div className="mt-3 flex items-center gap-2">
-            <span className="text-xs text-gray-500">Filters active</span>
-            <button onClick={clearFilters} className="text-xs text-primary-600 hover:text-primary-700 font-medium">
+            <span className="text-xs text-secondary">Filters active</span>
+            <button onClick={clearFilters} className="text-xs text-button-primary hover:opacity-80 font-medium">
               Clear all
             </button>
           </div>
@@ -166,32 +166,32 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
       )}
 
       {loading ? (
-        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <div className="bg-card rounded-xl border border-gray-200 overflow-hidden">
           <div className="divide-y divide-gray-100">
             {Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="p-4 animate-pulse flex items-center gap-4">
                 <div className="flex-1 space-y-2">
-                  <div className="h-4 bg-gray-200 rounded w-32" />
+                  <div className="h-4 bg-background rounded w-32" />
                   <div className="h-3 bg-gray-100 rounded w-24" />
                 </div>
-                <div className="h-4 bg-gray-200 rounded w-20" />
-                <div className="h-5 bg-gray-200 rounded-full w-14" />
+                <div className="h-4 bg-background rounded w-20" />
+                <div className="h-5 bg-background rounded-full w-14" />
               </div>
             ))}
           </div>
         </div>
       ) : transactions.length === 0 ? (
-        <div className="bg-white rounded-xl border border-gray-200">
+        <div className="bg-card rounded-xl border border-gray-200">
           <div className="flex flex-col items-center justify-center py-16 px-4">
-            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mb-4">
+              <svg className="w-8 h-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">
+            <h3 className="text-lg font-semibold text-primary mb-1">
               {hasActiveFilters ? "No matching transactions" : "No transactions yet"}
             </h3>
-            <p className="text-sm text-gray-500 mb-6 text-center max-w-sm">
+            <p className="text-sm text-secondary mb-6 text-center max-w-sm">
               {hasActiveFilters
                 ? "Try adjusting your search or filters."
                 : "Create your first transaction to start tracking sales."}
@@ -199,14 +199,14 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
             {hasActiveFilters ? (
               <button
                 onClick={clearFilters}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background transition-colors"
               >
                 Clear Filters
               </button>
             ) : (
               <button
                 onClick={() => (window.location.href = "/transactions/new")}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors shadow-sm"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -218,31 +218,31 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
         </div>
       ) : (
         <>
-          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <div className="bg-card rounded-xl border border-gray-200 overflow-hidden">
             <div className="divide-y divide-gray-100">
               {transactions.map((txn) => (
                 <div
                   key={txn.id}
                   onClick={() => (window.location.href = `/transactions/${txn.id}`)}
-                  className="flex items-center gap-4 px-4 py-3.5 hover:bg-gray-50 cursor-pointer transition-colors"
+                  className="flex items-center gap-4 px-4 py-3.5 hover:bg-background cursor-pointer transition-colors"
                 >
                   <div className="flex-1 min-w-0">
-                    <p className="font-mono text-sm font-semibold text-gray-900">{txn.transactionNumber}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">
+                    <p className="font-mono text-sm font-semibold text-primary">{txn.transactionNumber}</p>
+                    <p className="text-xs text-secondary mt-0.5">
                       {formatDate(txn.createdAt)} at {formatTime(txn.createdAt)}
                     </p>
                   </div>
-                  <div className="hidden sm:block text-sm text-gray-500 max-w-[200px] truncate">
+                  <div className="hidden sm:block text-sm text-secondary max-w-[200px] truncate">
                     {Array.isArray(txn.services) ? txn.services.join(", ") : ""}
                   </div>
-                  <div className="text-sm text-gray-500 capitalize shrink-0">
+                  <div className="text-sm text-secondary capitalize shrink-0">
                     {getPaymentMethodLabel(txn.paymentMethod)}
                   </div>
                   <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border shrink-0 ${getStatusStyle(txn.paymentStatus)}`}>
                     {txn.paymentStatus}
                   </span>
-                  <p className="text-sm font-bold text-gray-900 shrink-0 w-20 text-right">{formatCurrency(txn.finalAmount)}</p>
-                  <svg className="w-4 h-4 text-gray-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <p className="text-sm font-bold text-primary shrink-0 w-20 text-right">{formatCurrency(txn.finalAmount)}</p>
+                  <svg className="w-4 h-4 text-secondary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                   </svg>
                 </div>
@@ -252,14 +252,14 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
 
           {totalPages > 1 && (
             <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-200">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-secondary">
                 Page {page} of {totalPages} ({total} transactions)
               </p>
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={page <= 1}
-                  className="px-3 py-1.5 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="px-3 py-1.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   Previous
                 </button>
@@ -280,8 +280,8 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
                       onClick={() => setPage(pageNum)}
                       className={`w-9 h-9 text-sm font-medium rounded-lg transition-colors ${
                         page === pageNum
-                          ? "bg-primary-600 text-white"
-                          : "text-gray-600 hover:bg-gray-100"
+                          ? "bg-button-primary text-button-text"
+                          : "text-secondary hover:bg-background"
                       }`}
                     >
                       {pageNum}
@@ -291,7 +291,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal }) => {
                 <button
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={page >= totalPages}
-                  className="px-3 py-1.5 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="px-3 py-1.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   Next
                 </button>

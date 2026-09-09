@@ -12,14 +12,14 @@ const services = [
   { name: "Hair Spa (Starts)", price: 399, category: "Facial & Body" },
   { name: "Full Body Massage", price: 999, category: "Facial & Body" },
   { name: "Make Up (Starts)", price: 1999, category: "Facial & Body" },
-  { name: "Eyebrows", price: 49, category: "Other Services" },
-  { name: "D-Tan Facials", price: 300, category: "Other Services" },
-  { name: "Waxing", price: 449, category: "Other Services" },
-  { name: "Hydro Facial", price: 1499, category: "Other Services" },
-  { name: "Hair Cut (Starts)", price: 499, category: "Other Services" },
-  { name: "Pedicure (Starts)", price: 499, category: "Other Services" },
-  { name: "Hair Spa (Starts)", price: 849, category: "Other Services" },
-  { name: "Makeup (Starts)", price: 2499, category: "Other Services" },
+  { name: "Eyebrows", price: 49, category: "Women's Services" },
+  { name: "D-Tan Facials", price: 300, category: "Women's Services" },
+  { name: "Waxing", price: 449, category: "Women's Services" },
+  { name: "Hydro Facial", price: 1499, category: "Women's Services" },
+  { name: "Hair Cut (Starts)", price: 499, category: "Women's Services" },
+  { name: "Pedicure (Starts)", price: 499, category: "Women's Services" },
+  { name: "Hair Spa (Starts)", price: 849, category: "Women's Services" },
+  { name: "Makeup (Starts)", price: 2499, category: "Women's Services" },
 ];
 
 async function seed() {

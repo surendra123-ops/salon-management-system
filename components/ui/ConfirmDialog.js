@@ -13,19 +13,19 @@ const ConfirmDialog = ({
 }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title} size="sm">
-      <p className="text-sm text-gray-600 mb-6">{message}</p>
+      <p className="text-sm text-secondary mb-6">{message}</p>
       <div className="flex items-center gap-3 justify-end">
         <button
           onClick={onClose}
           disabled={loading}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50"
+          className="px-4 py-2 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background transition-colors disabled:opacity-50"
         >
           Cancel
         </button>
         <button
           onClick={onConfirm}
           disabled={loading}
-          className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center gap-2"
+          className="px-4 py-2 text-sm font-medium text-button-text bg-red-600 rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center gap-2"
         >
           {loading && (
             <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">

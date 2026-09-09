@@ -3,9 +3,9 @@
  * Renders a horizontal bar list with accessible labels and supporting values.
  * Chosen over a chart library to keep the bundle small and the layout responsive.
  */
-const SimpleBarChart = ({ data, formatLabel, formatValue, color = "bg-primary-600" }) => {
+const SimpleBarChart = ({ data, formatLabel, formatValue, color = "bg-button-primary" }) => {
   if (!data || data.length === 0) {
-    return <p className="text-gray-500 text-sm py-4">No data to display.</p>
+    return <p className="text-secondary text-sm py-4">No data to display.</p>
   }
 
   const max = Math.max(...data.map((d) => Number(d.value) || 0), 1)
@@ -17,10 +17,10 @@ const SimpleBarChart = ({ data, formatLabel, formatValue, color = "bg-primary-60
         return (
           <div key={i}>
             <div className="flex items-center justify-between text-sm mb-1">
-              <span className="font-medium text-gray-700">{formatLabel ? formatLabel(d) : d.label}</span>
-              <span className="text-gray-900 font-semibold">{formatValue ? formatValue(d) : d.value}</span>
+              <span className="font-medium text-secondary">{formatLabel ? formatLabel(d) : d.label}</span>
+              <span className="text-primary font-semibold">{formatValue ? formatValue(d) : d.value}</span>
             </div>
-            <div className="w-full bg-gray-100 rounded overflow-hidden" aria-hidden="true">
+            <div className="w-full bg-background rounded overflow-hidden" aria-hidden="true">
               <div
                 className={`h-3 ${color} rounded`}
                 style={{ width: `${pct}%` }}

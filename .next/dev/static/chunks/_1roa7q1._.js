@@ -59,12 +59,12 @@ const RegisterPage = ()=>{
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gray-50 flex items-center justify-center p-4",
+        className: "min-h-screen bg-background flex items-center justify-center p-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-white rounded-lg shadow-xl w-full max-w-md p-8",
+            className: "bg-card rounded-lg shadow-xl w-full max-w-md p-8",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                    className: "text-2xl font-bold text-gray-900 mb-6 text-center",
+                    className: "text-2xl font-bold text-primary mb-6 text-center",
                     children: "Create Your Account"
                 }, void 0, false, {
                     fileName: "[project]/app/(auth)/register/page.js",
@@ -72,7 +72,7 @@ const RegisterPage = ()=>{
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "bg-green-100 text-green-800 p-4 rounded mb-6",
+                    className: "bg-accent-total-bg text-green-800 p-4 rounded mb-6",
                     children: "Registration successful! You can now log in."
                 }, void 0, false, {
                     fileName: "[project]/app/(auth)/register/page.js",
@@ -101,7 +101,7 @@ const RegisterPage = ()=>{
                             className: "border-b border-gray-200 pb-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "text-sm font-semibold text-gray-500 uppercase mb-3",
+                                    className: "text-sm font-semibold text-secondary uppercase mb-3",
                                     children: "Salon Details"
                                 }, void 0, false, {
                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -114,7 +114,7 @@ const RegisterPage = ()=>{
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                    className: "block text-sm font-medium text-gray-700 mb-1",
+                                                    className: "block text-sm font-medium text-secondary mb-1",
                                                     children: "Salon Name"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -126,7 +126,7 @@ const RegisterPage = ()=>{
                                                     onChange: (e)=>setSalonName(e.target.value),
                                                     type: "text",
                                                     placeholder: "Enter salon name",
-                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent",
+                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent",
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -142,7 +142,7 @@ const RegisterPage = ()=>{
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                    className: "block text-sm font-medium text-gray-700 mb-1",
+                                                    className: "block text-sm font-medium text-secondary mb-1",
                                                     children: "Salon Phone"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -154,7 +154,7 @@ const RegisterPage = ()=>{
                                                     onChange: (e)=>setSalonPhone(e.target.value),
                                                     type: "tel",
                                                     placeholder: "Enter salon phone",
-                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent",
+                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent",
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -170,7 +170,7 @@ const RegisterPage = ()=>{
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                    className: "block text-sm font-medium text-gray-700 mb-1",
+                                                    className: "block text-sm font-medium text-secondary mb-1",
                                                     children: "Salon Address"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -182,7 +182,7 @@ const RegisterPage = ()=>{
                                                     onChange: (e)=>setSalonAddress(e.target.value),
                                                     type: "text",
                                                     placeholder: "Enter salon address",
-                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent",
+                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent",
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -211,7 +211,7 @@ const RegisterPage = ()=>{
                             className: "border-b border-gray-200 pb-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "text-sm font-semibold text-gray-500 uppercase mb-3",
+                                    className: "text-sm font-semibold text-secondary uppercase mb-3",
                                     children: "Your Details"
                                 }, void 0, false, {
                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -224,7 +224,7 @@ const RegisterPage = ()=>{
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                    className: "block text-sm font-medium text-gray-700 mb-1",
+                                                    className: "block text-sm font-medium text-secondary mb-1",
                                                     children: "Full Name"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -236,7 +236,7 @@ const RegisterPage = ()=>{
                                                     onChange: (e)=>setName(e.target.value),
                                                     type: "text",
                                                     placeholder: "Enter your full name",
-                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent",
+                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent",
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -252,7 +252,7 @@ const RegisterPage = ()=>{
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                    className: "block text-sm font-medium text-gray-700 mb-1",
+                                                    className: "block text-sm font-medium text-secondary mb-1",
                                                     children: "Email"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -264,7 +264,7 @@ const RegisterPage = ()=>{
                                                     onChange: (e)=>setEmail(e.target.value),
                                                     type: "email",
                                                     placeholder: "Enter your email",
-                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent",
+                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent",
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -280,7 +280,7 @@ const RegisterPage = ()=>{
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                    className: "block text-sm font-medium text-gray-700 mb-1",
+                                                    className: "block text-sm font-medium text-secondary mb-1",
                                                     children: "Password"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -292,7 +292,7 @@ const RegisterPage = ()=>{
                                                     onChange: (e)=>setPassword(e.target.value),
                                                     type: "password",
                                                     placeholder: "At least 6 characters",
-                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent",
+                                                    className: "w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent",
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(auth)/register/page.js",
@@ -320,7 +320,7 @@ const RegisterPage = ()=>{
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             type: "submit",
                             disabled: loading,
-                            className: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500",
+                            className: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-button-text bg-button-primary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-button-primary",
                             children: loading ? "Creating account..." : "Register"
                         }, void 0, false, {
                             fileName: "[project]/app/(auth)/register/page.js",
@@ -334,13 +334,13 @@ const RegisterPage = ()=>{
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "mt-6 text-center text-sm text-gray-600",
+                    className: "mt-6 text-center text-sm text-secondary",
                     children: [
                         "Already have an account?",
                         " ",
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                             href: "/login",
-                            className: "font-medium text-primary-600 hover:text-primary-500",
+                            className: "font-medium text-button-primary hover:opacity-80",
                             children: "Log in"
                         }, void 0, false, {
                             fileName: "[project]/app/(auth)/register/page.js",

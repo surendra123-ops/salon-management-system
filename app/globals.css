@@ -11,4 +11,43 @@
   --color-primary-700: #1d4ed8;
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
+  --font-tangerine: var(--font-tangerine);
+}
+
+:root {
+  --background: #f2f4ec;
+  --card-background: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --button-primary: #047857;
+  --button-text: #FFFFFF;
+  --accent-total-bg: #E6F4EA;
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-card {
+  background-color: var(--card-background);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-button-primary {
+  background-color: var(--button-primary);
+}
+
+.text-button-text {
+  color: var(--button-text);
+}
+
+.bg-accent-total {
+  background-color: var(--accent-total-bg);
 }

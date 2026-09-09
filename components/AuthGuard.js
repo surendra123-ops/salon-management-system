@@ -27,8 +27,8 @@ const AuthGuard = ({ children }) => {
 
   if (!authChecked) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-gray-500">Loading...</p>
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <p className="text-secondary">Loading...</p>
       </div>
     )
   }

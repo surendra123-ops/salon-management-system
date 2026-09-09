@@ -1,0 +1,3 @@
+module.exports=[29179,a=>{"use strict";var b=a.i(87924);a.s(["default",0,({id:a})=>(0,b.jsxs)("div",{className:"flex gap-3",children:[(0,b.jsx)("button",{onClick:()=>window.print(),className:"px-4 py-2 border border-gray-300 text-secondary rounded-md hover:bg-background font-medium",children:"Print Receipt"}),(0,b.jsx)("button",{onClick:()=>window.history.back(),className:"px-4 py-2 text-secondary hover:text-primary",children:"Back"})]})])}];
+
+//# sourceMappingURL=components_transactions_TransactionActions_09wmi1y.js.map

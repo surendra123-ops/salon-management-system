@@ -2913,6 +2913,44 @@
   }
 }
 
+:root {
+  --background: #f9fafb;
+  --card-background: #fff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --button-primary: #047857;
+  --button-text: #fff;
+  --accent-total-bg: #e6f4ea;
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-card {
+  background-color: var(--card-background);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-button-primary {
+  background-color: var(--button-primary);
+}
+
+.text-button-text {
+  color: var(--button-text);
+}
+
+.bg-accent-total {
+  background-color: var(--accent-total-bg);
+}
+
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;

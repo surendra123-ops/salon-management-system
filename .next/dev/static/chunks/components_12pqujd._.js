@@ -14,9 +14,9 @@ const EmptyState = ({ onAddService })=>{
         className: "flex flex-col items-center justify-center py-16 px-4",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4",
+                className: "w-16 h-16 bg-background rounded-full flex items-center justify-center mb-4",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                    className: "w-8 h-8 text-gray-400",
+                    className: "w-8 h-8 text-secondary",
                     fill: "none",
                     viewBox: "0 0 24 24",
                     stroke: "currentColor",
@@ -41,7 +41,7 @@ const EmptyState = ({ onAddService })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                className: "text-lg font-semibold text-gray-900 mb-1",
+                className: "text-lg font-semibold text-primary mb-1",
                 children: "No services yet"
             }, void 0, false, {
                 fileName: "[project]/components/services/EmptyState.js",
@@ -49,7 +49,7 @@ const EmptyState = ({ onAddService })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-sm text-gray-500 mb-6 text-center max-w-sm",
+                className: "text-sm text-secondary mb-6 text-center max-w-sm",
                 children: "Add your first service to start creating transactions."
             }, void 0, false, {
                 fileName: "[project]/components/services/EmptyState.js",
@@ -58,7 +58,7 @@ const EmptyState = ({ onAddService })=>{
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 onClick: onAddService,
-                className: "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors shadow-sm",
+                className: "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors shadow-sm",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                         className: "w-4 h-4",
@@ -112,24 +112,62 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 "use client";
 ;
+const CATEGORY_IMAGES = {
+    "men's hair cut": "https://images.pexels.com/photos/9992818/pexels-photo-9992818.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "foam shave": "https://images.pexels.com/photos/4947276/pexels-photo-4947276.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "head massage": "https://www.shioya-hair.com/head-spa/upload_images/headspa_img06.jpg",
+    "d-tan": "https://images.pexels.com/photos/4586721/pexels-photo-4586721.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "facials": "https://images.pexels.com/photos/34930097/pexels-photo-34930097.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "hair spa": "https://images.pexels.com/photos/7755680/pexels-photo-7755680.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "full body massage": "https://images.pexels.com/photos/5888130/pexels-photo-5888130.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "makeup": "https://images.pexels.com/photos/33580447/pexels-photo-33580447.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "eyebrows": "https://divinebeautylounge.com.au/uploads/1722500629_3f6d59fa6383eed9baea.webp",
+    "waxing": "https://images.pexels.com/photos/35103884/pexels-photo-35103884.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "hydro facial": "https://images.pexels.com/photos/4586746/pexels-photo-4586746.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    "pedicure": "https://images.pexels.com/photos/34930123/pexels-photo-34930123.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    // Fallbacks for similar categories
+    haircut: "https://images.pexels.com/photos/9992818/pexels-photo-9992818.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    facial: "https://images.pexels.com/photos/34930097/pexels-photo-34930097.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    massage: "https://images.pexels.com/photos/5888130/pexels-photo-5888130.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    default: "https://images.pexels.com/photos/33580447/pexels-photo-33580447.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+};
+const getCategoryImage = (category, name)=>{
+    // Try exact match on category first
+    const categoryKey = (category || "").toLowerCase().trim();
+    if (CATEGORY_IMAGES[categoryKey]) return CATEGORY_IMAGES[categoryKey];
+    // Try exact match on name
+    const nameKey = (name || "").toLowerCase().trim();
+    if (CATEGORY_IMAGES[nameKey]) return CATEGORY_IMAGES[nameKey];
+    // Try partial match on name
+    const nameLower = (name || "").toLowerCase();
+    for (const [keyword, url] of Object.entries(CATEGORY_IMAGES)){
+        if (nameLower.includes(keyword)) return url;
+    }
+    // Try partial match on category
+    for (const [keyword, url] of Object.entries(CATEGORY_IMAGES)){
+        if (categoryKey.includes(keyword)) return url;
+    }
+    return CATEGORY_IMAGES.default;
+};
 const ServiceCard = ({ service, onEdit, onDelete })=>{
+    const imageUrl = service.image || getCategoryImage(service.category, service.name);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200 flex flex-col",
+        className: "bg-card rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200 flex flex-col",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative h-44 bg-gray-100 overflow-hidden",
-                children: service.image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                    src: service.image,
+                className: "relative h-44 bg-background overflow-hidden",
+                children: imageUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                    src: imageUrl,
                     alt: service.name,
                     className: "w-full h-full object-cover"
                 }, void 0, false, {
                     fileName: "[project]/components/services/ServiceCard.js",
-                    lineNumber: 8,
+                    lineNumber: 53,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "w-full h-full flex items-center justify-center",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                        className: "w-12 h-12 text-gray-300",
+                        className: "w-12 h-12 text-secondary",
                         fill: "none",
                         viewBox: "0 0 24 24",
                         stroke: "currentColor",
@@ -140,44 +178,44 @@ const ServiceCard = ({ service, onEdit, onDelete })=>{
                             d: "M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"
                         }, void 0, false, {
                             fileName: "[project]/components/services/ServiceCard.js",
-                            lineNumber: 12,
+                            lineNumber: 57,
                             columnNumber: 15
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/components/services/ServiceCard.js",
-                        lineNumber: 11,
+                        lineNumber: 56,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/components/services/ServiceCard.js",
-                    lineNumber: 10,
+                    lineNumber: 55,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/services/ServiceCard.js",
-                lineNumber: 6,
+                lineNumber: 51,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "p-4 flex-1 flex flex-col",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "font-semibold text-gray-900 truncate",
+                        className: "font-semibold text-primary truncate",
                         children: service.name
                     }, void 0, false, {
                         fileName: "[project]/components/services/ServiceCard.js",
-                        lineNumber: 19,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-lg font-bold text-primary-600 mt-auto pt-2",
+                        className: "text-lg font-bold text-button-primary mt-auto pt-2",
                         children: [
                             "₹",
                             Number(service.price).toLocaleString("en-IN")
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/services/ServiceCard.js",
-                        lineNumber: 20,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -185,7 +223,7 @@ const ServiceCard = ({ service, onEdit, onDelete })=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>onEdit(service),
-                                className: "flex-1 px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors flex items-center justify-center gap-1.5",
+                                className: "flex-1 px-3 py-1.5 text-xs font-medium text-secondary hover:text-button-primary hover:bg-accent-total-bg rounded-lg transition-colors flex items-center justify-center gap-1.5",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                         className: "w-3.5 h-3.5",
@@ -199,24 +237,24 @@ const ServiceCard = ({ service, onEdit, onDelete })=>{
                                             d: "M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
                                         }, void 0, false, {
                                             fileName: "[project]/components/services/ServiceCard.js",
-                                            lineNumber: 30,
+                                            lineNumber: 75,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/components/services/ServiceCard.js",
-                                        lineNumber: 29,
+                                        lineNumber: 74,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     "Edit"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/services/ServiceCard.js",
-                                lineNumber: 25,
+                                lineNumber: 70,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>onDelete(service),
-                                className: "flex-1 px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors flex items-center justify-center gap-1.5",
+                                className: "flex-1 px-3 py-1.5 text-xs font-medium text-secondary hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors flex items-center justify-center gap-1.5",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                         className: "w-3.5 h-3.5",
@@ -230,37 +268,37 @@ const ServiceCard = ({ service, onEdit, onDelete })=>{
                                             d: "M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
                                         }, void 0, false, {
                                             fileName: "[project]/components/services/ServiceCard.js",
-                                            lineNumber: 39,
+                                            lineNumber: 84,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/components/services/ServiceCard.js",
-                                        lineNumber: 38,
+                                        lineNumber: 83,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     "Delete"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/services/ServiceCard.js",
-                                lineNumber: 34,
+                                lineNumber: 79,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/services/ServiceCard.js",
-                        lineNumber: 24,
+                        lineNumber: 69,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/services/ServiceCard.js",
-                lineNumber: 18,
+                lineNumber: 63,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/components/services/ServiceCard.js",
-        lineNumber: 5,
+        lineNumber: 50,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -377,7 +415,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                        className: "block text-sm font-medium text-gray-700 mb-2",
+                        className: "block text-sm font-medium text-secondary mb-2",
                         children: "Service Image"
                     }, void 0, false, {
                         fileName: "[project]/components/services/ServiceForm.js",
@@ -512,7 +550,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                         htmlFor: "service-name",
-                        className: "block text-sm font-medium text-gray-700 mb-2",
+                        className: "block text-sm font-medium text-secondary mb-2",
                         children: "Service Name"
                     }, void 0, false, {
                         fileName: "[project]/components/services/ServiceForm.js",
@@ -549,7 +587,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                         htmlFor: "service-price",
-                        className: "block text-sm font-medium text-gray-700 mb-2",
+                        className: "block text-sm font-medium text-secondary mb-2",
                         children: "Price"
                     }, void 0, false, {
                         fileName: "[project]/components/services/ServiceForm.js",
@@ -575,7 +613,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
                                 min: "0",
                                 step: "1",
                                 placeholder: "0",
-                                className: `w-full pl-7 pr-3.5 py-2.5 text-sm border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors ${errors.price ? "border-red-300 bg-red-50" : "border-gray-300"}`
+                                className: `w-full pl-7 pr-3.5 py-2.5 text-sm border rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none transition-colors ${errors.price ? "border-red-300 bg-red-50" : "border-gray-300"}`
                             }, void 0, false, {
                                 fileName: "[project]/components/services/ServiceForm.js",
                                 lineNumber: 151,
@@ -608,7 +646,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
                         type: "button",
                         onClick: onCancel,
                         disabled: loading,
-                        className: "flex-1 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50",
+                        className: "flex-1 px-4 py-2.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background transition-colors disabled:opacity-50",
                         children: "Cancel"
                     }, void 0, false, {
                         fileName: "[project]/components/services/ServiceForm.js",
@@ -618,7 +656,7 @@ const ServiceForm = ({ initialData, onSubmit, onCancel, loading, mode = "add" })
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "submit",
                         disabled: loading,
-                        className: "flex-1 px-4 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2",
+                        className: "flex-1 px-4 py-2.5 text-sm font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2",
                         children: [
                             loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                 className: "w-4 h-4 animate-spin",
@@ -867,7 +905,7 @@ const ServicesManager = ({ initialServices, initialTotal })=>{
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                    className: "text-2xl font-bold text-gray-900",
+                                    className: "text-2xl font-bold text-primary",
                                     children: "Services"
                                 }, void 0, false, {
                                     fileName: "[project]/components/services/ServicesManager.js",
@@ -875,7 +913,7 @@ const ServicesManager = ({ initialServices, initialTotal })=>{
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm text-gray-500 mt-1",
+                                    className: "text-sm text-secondary mt-1",
                                     children: "Manage the services offered by your business."
                                 }, void 0, false, {
                                     fileName: "[project]/components/services/ServicesManager.js",
@@ -890,7 +928,7 @@ const ServicesManager = ({ initialServices, initialTotal })=>{
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>setShowAddModal(true),
-                            className: "inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors shadow-sm shrink-0",
+                            className: "inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors shadow-sm shrink-0",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     className: "w-4 h-4",
@@ -931,12 +969,12 @@ const ServicesManager = ({ initialServices, initialTotal })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-xl border border-gray-200 p-4 mb-6",
+                className: "bg-card rounded-xl border border-gray-200 p-4 mb-6",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "relative",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                            className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none",
+                            className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-secondary pointer-events-none",
                             fill: "none",
                             viewBox: "0 0 24 24",
                             stroke: "currentColor",
@@ -960,7 +998,7 @@ const ServicesManager = ({ initialServices, initialTotal })=>{
                             value: search,
                             onChange: (e)=>setSearch(e.target.value),
                             placeholder: "Search services...",
-                            className: "w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+                            className: "w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none transition-colors"
                         }, void 0, false, {
                             fileName: "[project]/components/services/ServicesManager.js",
                             lineNumber: 152,
@@ -1028,17 +1066,17 @@ const ServicesManager = ({ initialServices, initialTotal })=>{
                 children: Array.from({
                     length: 8
                 }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-white rounded-xl border border-gray-200 p-4 animate-pulse",
+                        className: "bg-card rounded-xl border border-gray-200 p-4 animate-pulse",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "w-full h-40 bg-gray-200 rounded-lg mb-3"
+                                className: "w-full h-40 bg-background rounded-lg mb-3"
                             }, void 0, false, {
                                 fileName: "[project]/components/services/ServicesManager.js",
                                 lineNumber: 178,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "h-4 bg-gray-200 rounded w-2/3 mb-2"
+                                className: "h-4 bg-background rounded w-2/3 mb-2"
                             }, void 0, false, {
                                 fileName: "[project]/components/services/ServicesManager.js",
                                 lineNumber: 179,
@@ -1062,7 +1100,7 @@ const ServicesManager = ({ initialServices, initialTotal })=>{
                 lineNumber: 175,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)) : services.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-xl border border-gray-200",
+                className: "bg-card rounded-xl border border-gray-200",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$services$2f$EmptyState$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     onAddService: ()=>setShowAddModal(true)
                 }, void 0, false, {
@@ -1186,7 +1224,7 @@ const ConfirmDialog = ({ isOpen, onClose, onConfirm, title = "Confirm", message,
         size: "sm",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-sm text-gray-600 mb-6",
+                className: "text-sm text-secondary mb-6",
                 children: message
             }, void 0, false, {
                 fileName: "[project]/components/ui/ConfirmDialog.js",
@@ -1199,7 +1237,7 @@ const ConfirmDialog = ({ isOpen, onClose, onConfirm, title = "Confirm", message,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: onClose,
                         disabled: loading,
-                        className: "px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50",
+                        className: "px-4 py-2 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background transition-colors disabled:opacity-50",
                         children: "Cancel"
                     }, void 0, false, {
                         fileName: "[project]/components/ui/ConfirmDialog.js",
@@ -1209,7 +1247,7 @@ const ConfirmDialog = ({ isOpen, onClose, onConfirm, title = "Confirm", message,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: onConfirm,
                         disabled: loading,
-                        className: "px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center gap-2",
+                        className: "px-4 py-2 text-sm font-medium text-button-text bg-red-600 rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center gap-2",
                         children: [
                             loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                 className: "w-4 h-4 animate-spin",
@@ -1348,14 +1386,14 @@ const Modal = ({ isOpen, onClose, title, children, size = "md" })=>{
         "aria-labelledby": title ? "modal-title" : undefined,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             ref: panelRef,
-            className: `relative w-full ${sizeClasses[size]} bg-white rounded-xl shadow-2xl max-h-[90vh] flex flex-col`,
+            className: `relative w-full ${sizeClasses[size]} bg-card rounded-xl shadow-2xl max-h-[90vh] flex flex-col`,
             children: [
                 title && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex items-center justify-between px-6 py-4 border-b border-gray-100",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                             id: "modal-title",
-                            className: "text-lg font-semibold text-gray-900",
+                            className: "text-lg font-semibold text-primary",
                             children: title
                         }, void 0, false, {
                             fileName: "[project]/components/ui/Modal.js",
@@ -1364,7 +1402,7 @@ const Modal = ({ isOpen, onClose, title, children, size = "md" })=>{
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: onClose,
-                            className: "p-1 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors",
+                            className: "p-1 rounded-lg text-secondary hover:text-primary hover:bg-background transition-colors",
                             "aria-label": "Close",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                 className: "w-5 h-5",

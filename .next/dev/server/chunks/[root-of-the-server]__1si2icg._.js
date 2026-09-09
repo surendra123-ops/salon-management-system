@@ -298,12 +298,12 @@ const getRecentTransactions = async (salonId, fromISO, toISO, limit = 8)=>{
         createdAt: -1
     }).limit(limit).lean();
     return transactions.map((t)=>({
-            id: t._id,
+            id: t._id.toString(),
             transactionNumber: t.transactionNumber,
             services: t.services.map((s)=>s.serviceName),
             finalAmount: t.finalAmount,
             paymentMethod: t.paymentMethod,
-            createdAt: t.createdAt
+            createdAt: t.createdAt instanceof Date ? t.createdAt.toISOString() : String(t.createdAt)
         }));
 };
 const resolveReportDateRange = (searchParams)=>{
@@ -314,6 +314,7 @@ const resolveReportDateRange = (searchParams)=>{
         "today",
         "yesterday",
         "this-week",
+        "last-week",
         "this-month",
         "last-month"
     ];
@@ -359,12 +360,15 @@ async function GET(request) {
         }
         const { searchParams } = new URL(request.url);
         const { fromISO, toISO, from, to, range } = resolveReportDateRange(searchParams);
+        // Convert salonId from string to ObjectId for aggregation queries
+        const mongoose = __turbopack_context__.r("[externals]/mongoose [external] (mongoose, cjs, [project]/node_modules/mongoose)");
+        const salonId = new mongoose.Types.ObjectId(payload.salonId);
         const [summary, dailySales, topServices, payments, recentTransactions] = await Promise.all([
-            getSummary(payload.salonId, fromISO, toISO),
-            getDailySales(payload.salonId, fromISO, toISO, from, to),
-            getTopServices(payload.salonId, fromISO, toISO, 5),
-            getPaymentSummary(payload.salonId, fromISO, toISO),
-            getRecentTransactions(payload.salonId, fromISO, toISO, 8)
+            getSummary(salonId, fromISO, toISO),
+            getDailySales(salonId, fromISO, toISO, from, to),
+            getTopServices(salonId, fromISO, toISO, 5),
+            getPaymentSummary(salonId, fromISO, toISO),
+            getRecentTransactions(salonId, fromISO, toISO, 8)
         ]);
         return Response.json({
             success: true,
@@ -579,6 +583,20 @@ const IST_OFFSET_MS = 5.5 * 60 * 60 * 1000;
             resolvedFrom = getWeekStart();
             resolvedTo = getToday();
             break;
+        case "last-week":
+            {
+                const thisWeekStart = getWeekStart();
+                const thisWeekStartNoon = new Date(thisWeekStart + "T12:00:00+05:30");
+                const lastWeekEnd = new Date(thisWeekStartNoon.getTime() - 24 * 60 * 60 * 1000);
+                const lastWeekEndStr = toISTDateString(lastWeekEnd);
+                const lastWeekEndNoon = new Date(lastWeekEndStr + "T12:00:00+05:30");
+                const day = lastWeekEndNoon.getUTCDay();
+                const diff = day === 0 ? 6 : day - 1;
+                const lastWeekStart = new Date(lastWeekEndNoon.getTime() - diff * 24 * 60 * 60 * 1000);
+                resolvedFrom = toISTDateString(lastWeekStart);
+                resolvedTo = lastWeekEndStr;
+                break;
+            }
         case "last-month":
             {
                 const lm = getLastMonth();

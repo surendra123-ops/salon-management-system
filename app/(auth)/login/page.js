@@ -42,14 +42,14 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="bg-card rounded-lg shadow-xl w-full max-w-md p-8">
+        <h2 className="text-2xl font-bold text-primary mb-6 text-center">
           Salon Management System
         </h2>
 
         {success && (
-          <div className="bg-green-100 text-green-800 p-4 rounded mb-6">
+          <div className="bg-accent-total-bg text-green-800 p-4 rounded mb-6">
             Login successful!
           </div>
         )}
@@ -62,7 +62,7 @@ const LoginPage = () => {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-secondary mb-2">
               Email
             </label>
             <input
@@ -70,13 +70,13 @@ const LoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="Enter your email"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-secondary mb-2">
               Password
             </label>
             <input
@@ -84,7 +84,7 @@ const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               placeholder="Enter your password"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-button-primary focus:border-transparent"
               required
             />
           </div>
@@ -92,7 +92,7 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-button-text bg-button-primary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-button-primary"
           >
             {loading
               ? "Logging in..."
@@ -100,9 +100,9 @@ const LoginPage = () => {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-secondary">
           Don&apos;t have an account?{" "}
-          <a href="/register" className="font-medium text-primary-600 hover:text-primary-500">
+          <a href="/register" className="font-medium text-button-primary hover:opacity-80">
             Register
           </a>
         </p>

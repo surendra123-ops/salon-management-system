@@ -162,7 +162,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                    className: "text-2xl font-bold text-gray-900",
+                                    className: "text-2xl font-bold text-primary",
                                     children: "Transactions"
                                 }, void 0, false, {
                                     fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -170,7 +170,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm text-gray-500 mt-1",
+                                    className: "text-sm text-secondary mt-1",
                                     children: "View all salon transactions."
                                 }, void 0, false, {
                                     fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -185,7 +185,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>window.location.href = "/transactions/new",
-                            className: "inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors shadow-sm shrink-0",
+                            className: "inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors shadow-sm shrink-0",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     className: "w-4 h-4",
@@ -226,7 +226,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-xl border border-gray-200 p-4 mb-6",
+                className: "bg-card rounded-xl border border-gray-200 p-4 mb-6",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col sm:flex-row gap-3",
@@ -235,7 +235,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                 className: "relative flex-1",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                        className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none",
+                                        className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-secondary pointer-events-none",
                                         fill: "none",
                                         viewBox: "0 0 24 24",
                                         stroke: "currentColor",
@@ -259,7 +259,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                         value: search,
                                         onChange: (e)=>setSearch(e.target.value),
                                         placeholder: "Search by transaction number...",
-                                        className: "w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+                                        className: "w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none transition-colors"
                                     }, void 0, false, {
                                         fileName: "[project]/components/transactions/TransactionsManager.js",
                                         lineNumber: 127,
@@ -274,7 +274,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                 value: filterPaymentMethod,
                                 onChange: (e)=>setFilterPaymentMethod(e.target.value),
-                                className: "px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white transition-colors",
+                                className: "px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-button-primary focus:border-button-primary outline-none bg-card transition-colors",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                         value: "",
@@ -324,7 +324,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                         className: "mt-3 flex items-center gap-2",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-xs text-gray-500",
+                                className: "text-xs text-secondary",
                                 children: "Filters active"
                             }, void 0, false, {
                                 fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -333,7 +333,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: clearFilters,
-                                className: "text-xs text-primary-600 hover:text-primary-700 font-medium",
+                                className: "text-xs text-button-primary hover:opacity-80 font-medium",
                                 children: "Clear all"
                             }, void 0, false, {
                                 fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -399,7 +399,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-xl border border-gray-200 overflow-hidden",
+                className: "bg-card rounded-xl border border-gray-200 overflow-hidden",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "divide-y divide-gray-100",
                     children: Array.from({
@@ -411,7 +411,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                     className: "flex-1 space-y-2",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "h-4 bg-gray-200 rounded w-32"
+                                            className: "h-4 bg-background rounded w-32"
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionsManager.js",
                                             lineNumber: 174,
@@ -431,14 +431,14 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-4 bg-gray-200 rounded w-20"
+                                    className: "h-4 bg-background rounded w-20"
                                 }, void 0, false, {
                                     fileName: "[project]/components/transactions/TransactionsManager.js",
                                     lineNumber: 177,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-5 bg-gray-200 rounded-full w-14"
+                                    className: "h-5 bg-background rounded-full w-14"
                                 }, void 0, false, {
                                     fileName: "[project]/components/transactions/TransactionsManager.js",
                                     lineNumber: 178,
@@ -460,14 +460,14 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                 lineNumber: 169,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)) : transactions.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-xl border border-gray-200",
+                className: "bg-card rounded-xl border border-gray-200",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex flex-col items-center justify-center py-16 px-4",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4",
+                            className: "w-16 h-16 bg-background rounded-full flex items-center justify-center mb-4",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                className: "w-8 h-8 text-gray-400",
+                                className: "w-8 h-8 text-secondary",
                                 fill: "none",
                                 viewBox: "0 0 24 24",
                                 stroke: "currentColor",
@@ -492,7 +492,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            className: "text-lg font-semibold text-gray-900 mb-1",
+                            className: "text-lg font-semibold text-primary mb-1",
                             children: hasActiveFilters ? "No matching transactions" : "No transactions yet"
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -500,7 +500,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-sm text-gray-500 mb-6 text-center max-w-sm",
+                            className: "text-sm text-secondary mb-6 text-center max-w-sm",
                             children: hasActiveFilters ? "Try adjusting your search or filters." : "Create your first transaction to start tracking sales."
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -509,7 +509,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                         }, ("TURBOPACK compile-time value", void 0)),
                         hasActiveFilters ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: clearFilters,
-                            className: "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors",
+                            className: "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background transition-colors",
                             children: "Clear Filters"
                         }, void 0, false, {
                             fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -517,7 +517,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                             columnNumber: 15
                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>window.location.href = "/transactions/new",
-                            className: "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors shadow-sm",
+                            className: "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-button-text bg-button-primary rounded-lg hover:opacity-90 transition-colors shadow-sm",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     className: "w-4 h-4",
@@ -559,18 +559,18 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
             }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-white rounded-xl border border-gray-200 overflow-hidden",
+                        className: "bg-card rounded-xl border border-gray-200 overflow-hidden",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "divide-y divide-gray-100",
                             children: transactions.map((txn)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     onClick: ()=>window.location.href = `/transactions/${txn.id}`,
-                                    className: "flex items-center gap-4 px-4 py-3.5 hover:bg-gray-50 cursor-pointer transition-colors",
+                                    className: "flex items-center gap-4 px-4 py-3.5 hover:bg-background cursor-pointer transition-colors",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex-1 min-w-0",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "font-mono text-sm font-semibold text-gray-900",
+                                                    className: "font-mono text-sm font-semibold text-primary",
                                                     children: txn.transactionNumber
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -578,7 +578,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-xs text-gray-400 mt-0.5",
+                                                    className: "text-xs text-secondary mt-0.5",
                                                     children: [
                                                         formatDate(txn.createdAt),
                                                         " at ",
@@ -596,7 +596,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "hidden sm:block text-sm text-gray-500 max-w-[200px] truncate",
+                                            className: "hidden sm:block text-sm text-secondary max-w-[200px] truncate",
                                             children: Array.isArray(txn.services) ? txn.services.join(", ") : ""
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -604,7 +604,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-sm text-gray-500 capitalize shrink-0",
+                                            className: "text-sm text-secondary capitalize shrink-0",
                                             children: getPaymentMethodLabel(txn.paymentMethod)
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -620,7 +620,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-sm font-bold text-gray-900 shrink-0 w-20 text-right",
+                                            className: "text-sm font-bold text-primary shrink-0 w-20 text-right",
                                             children: formatCurrency(txn.finalAmount)
                                         }, void 0, false, {
                                             fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -628,7 +628,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                            className: "w-4 h-4 text-gray-300 shrink-0",
+                                            className: "w-4 h-4 text-secondary shrink-0",
                                             fill: "none",
                                             viewBox: "0 0 24 24",
                                             stroke: "currentColor",
@@ -667,7 +667,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                         className: "flex items-center justify-between mt-6 pt-4 border-t border-gray-200",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-sm text-gray-500",
+                                className: "text-sm text-secondary",
                                 children: [
                                     "Page ",
                                     page,
@@ -688,7 +688,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setPage((p)=>Math.max(1, p - 1)),
                                         disabled: page <= 1,
-                                        className: "px-3 py-1.5 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors",
+                                        className: "px-3 py-1.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed transition-colors",
                                         children: "Previous"
                                     }, void 0, false, {
                                         fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -710,7 +710,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                         }
                                         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: ()=>setPage(pageNum),
-                                            className: `w-9 h-9 text-sm font-medium rounded-lg transition-colors ${page === pageNum ? "bg-primary-600 text-white" : "text-gray-600 hover:bg-gray-100"}`,
+                                            className: `w-9 h-9 text-sm font-medium rounded-lg transition-colors ${page === pageNum ? "bg-button-primary text-button-text" : "text-secondary hover:bg-background"}`,
                                             children: pageNum
                                         }, pageNum, false, {
                                             fileName: "[project]/components/transactions/TransactionsManager.js",
@@ -721,7 +721,7 @@ const TransactionsManager = ({ initialTransactions, initialTotal })=>{
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setPage((p)=>Math.min(totalPages, p + 1)),
                                         disabled: page >= totalPages,
-                                        className: "px-3 py-1.5 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors",
+                                        className: "px-3 py-1.5 text-sm font-medium text-secondary bg-card border border-gray-300 rounded-lg hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed transition-colors",
                                         children: "Next"
                                     }, void 0, false, {
                                         fileName: "[project]/components/transactions/TransactionsManager.js",

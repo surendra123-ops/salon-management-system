@@ -139,12 +139,12 @@ const getRecentTransactions = async (salonId, fromISO, toISO, limit = 8) => {
     .lean()
 
   return transactions.map((t) => ({
-    id: t._id,
+    id: t._id.toString(),
     transactionNumber: t.transactionNumber,
     services: t.services.map((s) => s.serviceName),
     finalAmount: t.finalAmount,
     paymentMethod: t.paymentMethod,
-    createdAt: t.createdAt,
+    createdAt: t.createdAt instanceof Date ? t.createdAt.toISOString() : String(t.createdAt),
   }))
 }
 
@@ -153,7 +153,7 @@ const resolveReportDateRange = (searchParams) => {
   const fromRaw = searchParams.get("from")
   const toRaw = searchParams.get("to")
 
-  const validRanges = ["today", "yesterday", "this-week", "this-month", "last-month"]
+  const validRanges = ["today", "yesterday", "this-week", "last-week", "this-month", "last-month"]
   const isNamedRange = validRanges.includes(range)
 
   if (fromRaw || toRaw) {
@@ -192,13 +192,17 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url)
     const { fromISO, toISO, from, to, range } = resolveReportDateRange(searchParams)
 
+    // Convert salonId from string to ObjectId for aggregation queries
+    const mongoose = require("mongoose")
+    const salonId = new mongoose.Types.ObjectId(payload.salonId)
+
     const [summary, dailySales, topServices, payments, recentTransactions] =
       await Promise.all([
-        getSummary(payload.salonId, fromISO, toISO),
-        getDailySales(payload.salonId, fromISO, toISO, from, to),
-        getTopServices(payload.salonId, fromISO, toISO, 5),
-        getPaymentSummary(payload.salonId, fromISO, toISO),
-        getRecentTransactions(payload.salonId, fromISO, toISO, 8),
+        getSummary(salonId, fromISO, toISO),
+        getDailySales(salonId, fromISO, toISO, from, to),
+        getTopServices(salonId, fromISO, toISO, 5),
+        getPaymentSummary(salonId, fromISO, toISO),
+        getRecentTransactions(salonId, fromISO, toISO, 8),
       ])
 
     return Response.json({

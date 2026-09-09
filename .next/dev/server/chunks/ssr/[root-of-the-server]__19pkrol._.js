@@ -64,6 +64,7 @@ async function fetchDashboardData(rangeParam) {
         "today",
         "yesterday",
         "this-week",
+        "last-week",
         "this-month",
         "last-month"
     ];
@@ -292,10 +293,10 @@ async function DashboardPage({ searchParams }) {
         className: "max-w-7xl mx-auto p-4",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-lg shadow-xl p-6 mb-6",
+                className: "bg-card rounded-lg shadow-xl p-6 mb-6",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-3xl font-bold text-gray-900",
+                        className: "text-3xl font-bold text-primary",
                         children: "Welcome, Owner"
                     }, void 0, false, {
                         fileName: "[project]/app/(dashboard)/dashboard/page.js",
@@ -303,7 +304,7 @@ async function DashboardPage({ searchParams }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-gray-500 mt-1",
+                        className: "text-secondary mt-1",
                         children: "Here's how your salon is performing."
                     }, void 0, false, {
                         fileName: "[project]/app/(dashboard)/dashboard/page.js",
@@ -546,6 +547,20 @@ const IST_OFFSET_MS = 5.5 * 60 * 60 * 1000;
             resolvedFrom = getWeekStart();
             resolvedTo = getToday();
             break;
+        case "last-week":
+            {
+                const thisWeekStart = getWeekStart();
+                const thisWeekStartNoon = new Date(thisWeekStart + "T12:00:00+05:30");
+                const lastWeekEnd = new Date(thisWeekStartNoon.getTime() - 24 * 60 * 60 * 1000);
+                const lastWeekEndStr = toISTDateString(lastWeekEnd);
+                const lastWeekEndNoon = new Date(lastWeekEndStr + "T12:00:00+05:30");
+                const day = lastWeekEndNoon.getUTCDay();
+                const diff = day === 0 ? 6 : day - 1;
+                const lastWeekStart = new Date(lastWeekEndNoon.getTime() - diff * 24 * 60 * 60 * 1000);
+                resolvedFrom = toISTDateString(lastWeekStart);
+                resolvedTo = lastWeekEndStr;
+                break;
+            }
         case "last-month":
             {
                 const lm = getLastMonth();
