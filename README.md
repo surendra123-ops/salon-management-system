@@ -2,6 +2,9 @@
 
 A salon management web application built with Next.js App Router, MongoDB, and Mongoose. Designed for single-salon owners to manage services, track transactions, and view sales dashboards.
 
+Deploy Link : https://lookfamilysalon.vercel.app
+
+
 ## Overview
 
 This application allows salon owners to:
